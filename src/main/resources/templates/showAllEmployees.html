@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Employees</title>
+</head>
+<body>
+    <main>
+        <h1>All Employees</h1>
+        <p th:each="employeeDatabase : ${AllEmployees}"></p>
+    </main>
+
+</body>
+</html>
