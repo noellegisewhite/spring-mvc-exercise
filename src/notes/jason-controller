@@ -1,0 +1,29 @@
+package com.example.springMVCWorkshop;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+
+@Controller
+public class EmployeeInfoController {
+
+    @Resource
+    private EmployeeRepository employeeRepo;
+    @Resource
+    private AddressRepository addressRepo;
+
+    @RequestMapping("/")
+    public String homePage(){
+        return "home.html";
+    }
+
+    @RequestMapping("/employee")
+    public String findAllEmployees(Model model){
+        model.addAttribute("EmployeeModel", employeeRepo.findEmployee());
+        model.addAttribute("AddressModel", addressRepo.findAddress());
+        return "EmployeeTemplate.html";
+    }
+}
